@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import InfoProvider from "./components/InfoProvider";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <InfoProvider>
+      <App />
+    </InfoProvider>
   </React.StrictMode>
 );
 
