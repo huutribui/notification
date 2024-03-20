@@ -2,22 +2,26 @@ import './App.css';
 
 import HomePage from './pages/HomePage';
 import Notifications from './pages/Notifications';
+import NavBar from './components/NavBar';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Redirect,
+  Route
 } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/notifications" component={Notifications} />
-        </Switch>
-      </Router>
+      <NavBar/>
+      <div className='pageContainer'>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/notifications" component={Notifications} />
+          </Switch>
+        </Router>
+
+      </div>
     </div>
   );
 }
