@@ -63,8 +63,9 @@ const NotificationBlock = (props) => {
                         
                     </div>
                     <div className={'textContent ' + (props.data.status !== NEW_STATUS ? "textGreyedOut" : "")}>
-                        <div>
-                            <span className='contentTextBold'>{TYPE_MAP[props.data.type].text} </span>{props.data.message}
+                        <div className='textContentInfo'>
+                            <div className='contentTextBold'>{TYPE_MAP[props.data.type].text}</div>
+                            {props.data.message}
                         </div>
                         <div className='dateTimeText'>{formatDate(props.data.date)}</div>
                     </div>

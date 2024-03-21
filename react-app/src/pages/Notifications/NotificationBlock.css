@@ -51,6 +51,8 @@
 
 .notificationBlock .contentTextBold {
     font-weight: 700;
+    min-width: fit-content;
+    margin-right: 5px;
 }
 
 .iconBlock {
@@ -71,4 +73,9 @@
 
 .textGreyedOut {
     color: grey
+}
+
+.textContentInfo {
+    display: flex;
+    flex-direction: row;
 }
