@@ -8,7 +8,7 @@ import Collapse from '@mui/material/Collapse';
 import CloseIcon from '@mui/icons-material/Close';
 import { useState, useContext } from 'react';
 import { InfoContext } from '../../components/InfoProvider';
-import './NotificationBlock.css';
+import './Notifications.css';
 
 const NEW_STATUS = 'new';
 const EC2_TYPE = 'EC2';

@@ -2,7 +2,7 @@ import React from 'react';
 
 const HomePage = () => {
 	return (
-		<>
+		<div className='HomePage'>
 			<div className="pageHeader">Home Page</div>
 			<div>
 				<b>Click on the notification icon to go to the Notification page.</b>
@@ -41,7 +41,7 @@ const HomePage = () => {
 				iure molestias, quaerat est. Ut distinctio consectetur et
 				necessitatibus!00
 			</div>
-		</>
+		</div>
 	);
 };
 
