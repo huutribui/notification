@@ -1,82 +1,81 @@
-.notificationBlock {
-    margin-bottom: 10px;
+.NotificationBlock {
+	margin-bottom: 10px;
 }
 
-.notificationBlock .blockContent {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    background-color: white;
-    box-sizing: border-box;
-    padding: 10px 5px 10px 15px;
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 2.5px 3px 0px;
-    border: 1px rgba(128, 128, 128, 0.16) solid;
-    align-items: center;
-    height: 100%;
+.NotificationBlock .blockContent {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	background-color: white;
+	box-sizing: border-box;
+	padding: 10px 5px 10px 15px;
+	border-radius: 5px;
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 2.5px 3px 0px;
+	border: 1px rgba(128, 128, 128, 0.16) solid;
+	align-items: center;
+	height: 100%;
 }
 
-.notificationBlock .iconPic {
-    color: white;
-    font-weight: 100;
-    box-sizing: border-box;
-    width: 50px;
-    height: 50px;
-    padding: 8px;
-    margin-right: 20px;
-    color: white;
+.NotificationBlock .iconPic {
+	color: white;
+	font-weight: 100;
+	box-sizing: border-box;
+	width: 50px;
+	height: 50px;
+	padding: 8px;
+	margin-right: 15px;
+	color: white;
 }
 
-.notificationBlock .iconPicEC2New {
-    background-color: #00377C;
+.NotificationBlock .iconPicEC2New {
+	background-color: #00377c;
 }
 
-.notificationBlock .iconPicBillingNew {
-    background-color: #653171;
+.NotificationBlock .iconPicBillingNew {
+	background-color: #653171;
 }
 
-.notificationBlock .iconPicProductNew {
-    background-color: #0089B9;
+.NotificationBlock .iconPicProductNew {
+	background-color: #0089b9;
 }
 
-.notificationBlock .iconPicDowntimeNew {
-    background-color: #B13D4A;
+.NotificationBlock .iconPicDowntimeNew {
+	background-color: #b13d4a;
 }
 
-
-.notificationBlock .iconPicViewed {
-    color: grey;
-    background-color: transparent;
+.NotificationBlock .iconPicViewed {
+	color: grey;
+	background-color: transparent;
 }
 
-.notificationBlock .contentTextBold {
-    font-weight: 600;
-    min-width: fit-content;
-    margin-right: 5px;
+.NotificationBlock .contentTextBold {
+	font-weight: 600;
+	min-width: fit-content;
+	margin-right: 5px;
 }
 
-.notificationBlock .iconBlock {
-    display: flex;
-    align-self: center;
+.NotificationBlock .iconBlock {
+	display: flex;
+	align-self: center;
 }
-.notificationBlock  .textContent {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.notificationBlock .dateTimeText {
-    color: #AEAEAE;
-    margin-top: 3px;
-    font-size: 14px;
+.NotificationBlock .textContent {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 100%;
 }
 
-.notificationBlock .textGreyedOut {
-    color: grey;
+.NotificationBlock .dateTimeText {
+	color: #aeaeae;
+	margin-top: 3px;
+	font-size: 13px;
 }
 
-.notificationBlock .textContentInfo {
-    display: flex;
-    flex-direction: row;
+.NotificationBlock .textGreyedOut {
+	color: grey;
+}
+
+.NotificationBlock .textContentInfo {
+	display: flex;
+	flex-direction: row;
 }

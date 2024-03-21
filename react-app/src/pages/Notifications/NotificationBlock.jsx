@@ -8,81 +8,120 @@ import Collapse from '@mui/material/Collapse';
 import CloseIcon from '@mui/icons-material/Close';
 import { useState, useContext } from 'react';
 import { InfoContext } from '../../components/InfoProvider';
-import { formatDate } from '../../utilities/Helper';
 import './NotificationBlock.css';
 
-const NEW_STATUS = "new";
-const EC2_TYPE = "EC2";
-const BILLING_TYPE = "billing";
-const NEW_PRODUCT_TYPE = "newProduct";
-const DOWN_TIME_TYPE = "downtime";
+const NEW_STATUS = 'new';
+const EC2_TYPE = 'EC2';
+const BILLING_TYPE = 'billing';
+const NEW_PRODUCT_TYPE = 'newProduct';
+const DOWN_TIME_TYPE = 'downtime';
 const TYPE_MAP = {
-    "billing" : {
-        "text": "Billing",
-        "className": "iconPicBillingNew"
-    },
-    "EC2": {
-        "text": "Compute engine",
-        "className": "iconPicEC2New"
-    },
-    "newProduct": {
-        "text": "New product available!",
-        "className": "iconPicProductNew"
-    },
-    "downtime": {
-        "text": "Scheduled downtime",
-        "className": "iconPicDowntimeNew"
-    }
+	billing: {
+		text: 'Billing',
+		className: 'iconPicBillingNew',
+	},
+	EC2: {
+		text: 'Compute engine',
+		className: 'iconPicEC2New',
+	},
+	newProduct: {
+		text: 'New product available!',
+		className: 'iconPicProductNew',
+	},
+	downtime: {
+		text: 'Scheduled downtime',
+		className: 'iconPicDowntimeNew',
+	},
 };
 
 const NotificationBlock = (props) => {
-    const context = useContext(InfoContext);
-    const [open, setOpen] = useState(true);
+	const context = useContext(InfoContext);
+	const [open, setOpen] = useState(true);
 
-    const handleCloseNotification = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        context.removeNotification( props.data.id);
-    }
+	const handleCloseNotification = (e) => {
+		e.preventDefault();
+		e.stopPropagation();
+		context.removeNotification(props.data.id);
+	};
 
-    const handleViewedNotification = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        context.viewedNotification(props.data.id);
-    }
-    
-    return(
-        <div className='notificationBlock' onClick={handleViewedNotification}>
-            
-            <Collapse in={open}>
-                <div className='blockContent'>
-                    <div className='iconBlock'>
-                        {props.data.type === EC2_TYPE && <MemoryIcon className={'iconPic ' + (props.data.status === NEW_STATUS ? TYPE_MAP[props.data.type].className : 'iconPicViewed')}/>}
-                        {props.data.type === BILLING_TYPE && <PaymentIcon className={'iconPic ' + (props.data.status === NEW_STATUS ? TYPE_MAP[props.data.type].className : 'iconPicViewed')}/>}
-                        {props.data.type === NEW_PRODUCT_TYPE && <NotificationsNoneIcon className={'iconPic ' + (props.data.status === NEW_STATUS ? TYPE_MAP[props.data.type].className : 'iconPicViewed')}/>}
-                        {props.data.type === DOWN_TIME_TYPE && <ErrorOutlineIcon className={'iconPic ' + (props.data.status === NEW_STATUS ? TYPE_MAP[props.data.type].className : 'iconPicViewed')}/>}
-                        
-                    </div>
-                    <div className={'textContent ' + (props.data.status !== NEW_STATUS ? "textGreyedOut" : "")}>
-                        <div className='textContentInfo'>
-                            <div className='contentTextBold'>{TYPE_MAP[props.data.type].text}</div>
-                            {props.data.message}
-                        </div>
-                        <div className='dateTimeText'>{formatDate(props.data.date)}</div>
-                    </div>
-                    <IconButton
-                    aria-label="close"
-                    color="disabled"
-                    size="large"
-                    onClick={handleCloseNotification}
-                    >
-                        <CloseIcon fontSize="inherit"/>
-                    </IconButton>
+	const handleViewedNotification = (e) => {
+		e.preventDefault();
+		e.stopPropagation();
+		context.viewedNotification(props.data.id);
+	};
 
-                </div>
-            </Collapse>
-        </div>
-    )
-}
+	return (
+		<div className="NotificationBlock" onClick={handleViewedNotification}>
+			<Collapse in={open}>
+				<div className="blockContent">
+					<div className="iconBlock">
+						{props.data.type === EC2_TYPE && (
+							<MemoryIcon
+								className={
+									'iconPic ' +
+									(props.data.status === NEW_STATUS
+										? TYPE_MAP[props.data.type].className
+										: 'iconPicViewed')
+								}
+							/>
+						)}
+						{props.data.type === BILLING_TYPE && (
+							<PaymentIcon
+								className={
+									'iconPic ' +
+									(props.data.status === NEW_STATUS
+										? TYPE_MAP[props.data.type].className
+										: 'iconPicViewed')
+								}
+							/>
+						)}
+						{props.data.type === NEW_PRODUCT_TYPE && (
+							<NotificationsNoneIcon
+								className={
+									'iconPic ' +
+									(props.data.status === NEW_STATUS
+										? TYPE_MAP[props.data.type].className
+										: 'iconPicViewed')
+								}
+							/>
+						)}
+						{props.data.type === DOWN_TIME_TYPE && (
+							<ErrorOutlineIcon
+								className={
+									'iconPic ' +
+									(props.data.status === NEW_STATUS
+										? TYPE_MAP[props.data.type].className
+										: 'iconPicViewed')
+								}
+							/>
+						)}
+					</div>
+					<div
+						className={
+							'textContent ' +
+							(props.data.status !== NEW_STATUS ? 'textGreyedOut' : '')
+						}
+					>
+						<div className="textContentInfo">
+							<div className="contentTextBold">
+								{TYPE_MAP[props.data.type].text}
+							</div>
+							{props.data.message}
+						</div>
+						<div className="dateTimeText">{props.data.date}</div>
+					</div>
+					<IconButton
+						aria-label="close"
+						color="disabled"
+						size="large"
+						onClick={handleCloseNotification}
+					>
+						<CloseIcon fontSize="inherit" />
+					</IconButton>
+				</div>
+			</Collapse>
+		</div>
+	);
+};
 
 export default NotificationBlock;

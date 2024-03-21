@@ -1,18 +1,18 @@
-.navBar .navBarContents{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+.NavBar .navBarContents {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
 }
 
-.navBar .navBarLogo {
-    cursor: pointer;
-    font-size: 25px;
-    font-weight: 500;
-    color: rgba(237, 237, 237, 0.95);
+.NavBar .navBarLogo {
+	cursor: pointer;
+	font-size: 25px;
+	font-weight: 500;
+	color: rgba(237, 237, 237, 0.95);
 }
 
-.navBar .navBarLogo:hover {
-    transform: scale(1.05);
-    color: white;
+.NavBar .navBarLogo:hover {
+	transform: scale(1.05);
+	color: white;
 }
