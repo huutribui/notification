@@ -41,11 +41,13 @@ const NotificationBlock = (props) => {
 
     const handleCloseNotification = (e) => {
         e.preventDefault();
+        e.stopPropagation();
         context.removeNotification( props.data.id);
     }
 
     const handleViewedNotification = (e) => {
         e.preventDefault();
+        e.stopPropagation();
         context.viewedNotification(props.data.id);
     }
     
@@ -55,7 +57,7 @@ const NotificationBlock = (props) => {
             <Collapse in={open}>
                 <div className='blockContent'>
                     <div className='iconBlock'>
-                        {props.data.type === EC2_TYPE && <MemoryIcon fontSize="small" className={'iconPic ' + (props.data.status === NEW_STATUS ? TYPE_MAP[props.data.type].className : 'iconPicViewed')}/>}
+                        {props.data.type === EC2_TYPE && <MemoryIcon className={'iconPic ' + (props.data.status === NEW_STATUS ? TYPE_MAP[props.data.type].className : 'iconPicViewed')}/>}
                         {props.data.type === BILLING_TYPE && <PaymentIcon className={'iconPic ' + (props.data.status === NEW_STATUS ? TYPE_MAP[props.data.type].className : 'iconPicViewed')}/>}
                         {props.data.type === NEW_PRODUCT_TYPE && <NotificationsNoneIcon className={'iconPic ' + (props.data.status === NEW_STATUS ? TYPE_MAP[props.data.type].className : 'iconPicViewed')}/>}
                         {props.data.type === DOWN_TIME_TYPE && <ErrorOutlineIcon className={'iconPic ' + (props.data.status === NEW_STATUS ? TYPE_MAP[props.data.type].className : 'iconPicViewed')}/>}
@@ -72,11 +74,9 @@ const NotificationBlock = (props) => {
                     aria-label="close"
                     color="disabled"
                     size="large"
-                    onClick={() => {
-                        setOpen(false);
-                    }}
+                    onClick={handleCloseNotification}
                     >
-                        <CloseIcon fontSize="inherit" onClick={handleCloseNotification}/>
+                        <CloseIcon fontSize="inherit"/>
                     </IconButton>
 
                 </div>
