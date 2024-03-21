@@ -8,6 +8,7 @@ const InfoProvider = ({ children }) => {
 	const [notifications, setNotifications] = useState([]);
 	const [newNotificationCount, setNewNotificationCount] = useState(0);
 
+	// call DELETE /notications/id to remove the notification before updating the context's array.
 	const removeNotification = (id) => {
 		try {
 			let notificiationsArr = [...notifications];
@@ -25,6 +26,7 @@ const InfoProvider = ({ children }) => {
 		}
 	};
 
+	//call PUT /notifications/id to change the notification's status before updating the context's array.
 	const viewedNotification = (id) => {
 		try {
 			let notificiationsArr = [...notifications];

@@ -49,6 +49,7 @@ let MOCK_DATA = [
 function App() {
 	const context = useContext(InfoContext);
 
+	// Inititialize the data by calling GET /notifications and set the returned data to context provider.
 	useEffect(() => {
 		context.setNewNotifications(MOCK_DATA);
 	}, []);
