@@ -5,14 +5,14 @@ export const InfoContext = React.createContext();
 let MOCK_DATA = [
     {
         "id": 0,
-        "type": "Billing",
+        "type": "billing",
         "message": "Your cloud credits will expire soon. Only $50 left.",
         "date": new Date() - 500000,
         "status" : "new"
     },
     {
         "id": 1,
-        "type": "Billing",
+        "type": "billing",
         "message": "Your cloud credits will expire soon. Only $50 left.",
         "date": new Date(),
         "status" : "new"

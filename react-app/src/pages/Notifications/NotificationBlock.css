@@ -27,6 +27,17 @@
     margin-right: 20px;
 }
 
+.notificationBlock .iconPicViewed {
+    color: grey;
+    font-weight: 100;
+    box-sizing: border-box;
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    background-color: transparent;
+    margin-right: 20px;
+}
+
 .notificationBlock .contentTextBold {
     font-weight: 700;
 }
@@ -45,4 +56,8 @@
 .notificationBlock .dateTimeText {
     color: #AEAEAE;
     margin-top: 6px;
+}
+
+.textGreyedOut {
+    color: grey
 }

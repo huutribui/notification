@@ -5,30 +5,45 @@ import Collapse from '@mui/material/Collapse';
 import CloseIcon from '@mui/icons-material/Close';
 import { useState, useContext } from 'react';
 import { InfoContext } from '../../components/InfoProvider';
+import { formatDate } from '../../utilities/Helper';
 import './NotificationBlock.css';
+
+const NEW_STATUS = "new";
+const TYPE_MAP = {
+    "billing" : "Billing",
+    "EC2": "Compute engine",
+    "newProduct": "New product available!",
+    "downtime": "Scheduled downtime"
+};
 
 const NotificationBlock = (props) => {
     const context = useContext(InfoContext);
     const [open, setOpen] = useState(true);
 
-    const handleCloseNotification = (e, id) => {
+    const handleCloseNotification = (e) => {
         e.preventDefault();
-        console.log("id: ", id);
-        context.removeNotification(id);
+        console.log("id: ", props.data.id);
+        context.removeNotification( props.data.id);
     }
+
+    const handleViewedNotification = (e) => {
+        e.preventDefault();
+        context.viewedNotification(props.data.id);
+    }
+    
     return(
-        <div className='notificationBlock'>
+        <div className='notificationBlock' onClick={handleViewedNotification}>
             
             <Collapse in={open}>
                 <div className='blockContent'>
                     <div className='iconBlock'>
-                        <MemoryIcon className='iconPic'/>
+                        <MemoryIcon className={props.data.status === NEW_STATUS ? 'iconPic' : 'iconPicViewed'}/>
                     </div>
-                    <div className='textContent'>
+                    <div className={'textContent ' + (props.data.status !== NEW_STATUS ? "textGreyedOut" : "")}>
                         <div>
-                            <span className='contentTextBold'>Testing </span>Your instance "learning-server" is provisioned and running.
+                            <span className='contentTextBold'>{TYPE_MAP[props.data.type]} </span>{props.data.message}
                         </div>
-                        <div className='dateTimeText'>6/7/2023 12:59PM</div>
+                        <div className='dateTimeText'>{formatDate(props.data.date)}</div>
                     </div>
                     <IconButton
                     aria-label="close"
@@ -38,7 +53,7 @@ const NotificationBlock = (props) => {
                         setOpen(false);
                     }}
                     >
-                        <CloseIcon fontSize="inherit" onClick={(e) => {handleCloseNotification(e, 1)}}/>
+                        <CloseIcon fontSize="inherit" onClick={handleCloseNotification}/>
                     </IconButton>
 
                 </div>
