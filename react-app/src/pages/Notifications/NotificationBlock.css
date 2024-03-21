@@ -23,19 +23,30 @@
     width: 60px;
     height: 60px;
     padding: 10px;
-    background-color: #00377C;
     margin-right: 20px;
+    color: white;
 }
+
+.notificationBlock .iconPicEC2New {
+    background-color: #00377C;
+}
+
+.notificationBlock .iconPicBillingNew {
+    background-color: #653171;
+}
+
+.notificationBlock .iconPicProductNew {
+    background-color: #0089B9;
+}
+
+.notificationBlock .iconPicDowntimeNew {
+    background-color: #B13D4A;
+}
+
 
 .notificationBlock .iconPicViewed {
     color: grey;
-    font-weight: 100;
-    box-sizing: border-box;
-    width: 60px;
-    height: 60px;
-    padding: 10px;
     background-color: transparent;
-    margin-right: 20px;
 }
 
 .notificationBlock .contentTextBold {

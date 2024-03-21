@@ -1,5 +1,8 @@
 import React from 'react';
 import MemoryIcon from '@mui/icons-material/Memory';
+import PaymentIcon from '@mui/icons-material/Payment';
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import IconButton from '@mui/material/IconButton';
 import Collapse from '@mui/material/Collapse';
 import CloseIcon from '@mui/icons-material/Close';
@@ -9,11 +12,27 @@ import { formatDate } from '../../utilities/Helper';
 import './NotificationBlock.css';
 
 const NEW_STATUS = "new";
+const EC2_TYPE = "EC2";
+const BILLING_TYPE = "billing";
+const NEW_PRODUCT_TYPE = "newProduct";
+const DOWN_TIME_TYPE = "downtime";
 const TYPE_MAP = {
-    "billing" : "Billing",
-    "EC2": "Compute engine",
-    "newProduct": "New product available!",
-    "downtime": "Scheduled downtime"
+    "billing" : {
+        "text": "Billing",
+        "className": "iconPicBillingNew"
+    },
+    "EC2": {
+        "text": "Compute engine",
+        "className": "iconPicEC2New"
+    },
+    "newProduct": {
+        "text": "New product available!",
+        "className": "iconPicProductNew"
+    },
+    "downtime": {
+        "text": "Scheduled downtime",
+        "className": "iconPicDowntimeNew"
+    }
 };
 
 const NotificationBlock = (props) => {
@@ -37,11 +56,15 @@ const NotificationBlock = (props) => {
             <Collapse in={open}>
                 <div className='blockContent'>
                     <div className='iconBlock'>
-                        <MemoryIcon className={props.data.status === NEW_STATUS ? 'iconPic' : 'iconPicViewed'}/>
+                        {props.data.type === EC2_TYPE && <MemoryIcon className={'iconPic ' + (props.data.status === NEW_STATUS ? TYPE_MAP[props.data.type].className : 'iconPicViewed')}/>}
+                        {props.data.type === BILLING_TYPE && <PaymentIcon className={'iconPic ' + (props.data.status === NEW_STATUS ? TYPE_MAP[props.data.type].className : 'iconPicViewed')}/>}
+                        {props.data.type === NEW_PRODUCT_TYPE && <NotificationsNoneIcon className={'iconPic ' + (props.data.status === NEW_STATUS ? TYPE_MAP[props.data.type].className : 'iconPicViewed')}/>}
+                        {props.data.type === DOWN_TIME_TYPE && <ErrorOutlineIcon className={'iconPic ' + (props.data.status === NEW_STATUS ? TYPE_MAP[props.data.type].className : 'iconPicViewed')}/>}
+                        
                     </div>
                     <div className={'textContent ' + (props.data.status !== NEW_STATUS ? "textGreyedOut" : "")}>
                         <div>
-                            <span className='contentTextBold'>{TYPE_MAP[props.data.type]} </span>{props.data.message}
+                            <span className='contentTextBold'>{TYPE_MAP[props.data.type].text} </span>{props.data.message}
                         </div>
                         <div className='dateTimeText'>{formatDate(props.data.date)}</div>
                     </div>
