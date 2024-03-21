@@ -12,16 +12,16 @@ import {
 function App() {
   return (
     <div className="App">
-      <NavBar/>
-      <div className='pageContainer'>
         <Router>
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route path="/notifications" component={Notifications} />
-          </Switch>
+          <NavBar/>
+          <div className='pageContainer'>
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route path="/notifications" component={Notifications} />
+            </Switch>
+          </div>
         </Router>
 
-      </div>
     </div>
   );
 }

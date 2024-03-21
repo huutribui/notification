@@ -9,10 +9,12 @@ import { useContext } from 'react';
 import { InfoContext } from './InfoProvider';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const NEW_STATUS = "new";
 
 const NavBar = () => {
+    const history = useHistory();
     const context = useContext(InfoContext);
     const [notiCount, setNotiCount] = useState(0);
 
@@ -20,17 +22,29 @@ const NavBar = () => {
         let newNotifications = context.notifications;
         newNotifications = newNotifications.map(noti => noti.status === NEW_STATUS);
         setNotiCount(newNotifications.length);
-    }, [context.notifications])
+    }, [context.notifications]);
+
+    const handleRedirect = (e, link) => {
+        e.preventDefault();
+        console.log(link)
+        try {
+			history.push(link);
+		} catch (err) {
+            console.log(err);
+			window.alert('ERROR: ', err.message);
+		}
+    }
 
     return(
         <AppBar position="static" className='navBar'>
             <Toolbar className='navBarContents'>
-                <div className='navBarLogo'>Home</div>
+                <div className='navBarLogo' onClick={e => handleRedirect(e, '/')}>Home</div>
             
                 <IconButton
                     size="large"
                     aria-label="show new notifications"
                     color="inherit"
+                    onClick={e => handleRedirect(e, '/notifications')}
                 >
                     <Badge badgeContent={notiCount} color="error">
                         <NotificationsIcon />
