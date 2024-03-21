@@ -7,11 +7,12 @@
   width: 50%;
   min-height: calc(80vh);
   margin: 20px auto;
-  padding: 0 20px 20px 30px;
+  padding: 0 30px 20px 40px;
   border-color: #0000001a;
   border-radius: 5px;
   border-style: solid;
   box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.114);
+  overflow-y: auto;
 }
 
 .App .pageHeader {

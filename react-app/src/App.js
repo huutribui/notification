@@ -1,6 +1,6 @@
 import './App.css';
 
-import HomePage from './pages/HomePage';
+import HomePage from './pages/HomePage/HomePage';
 import Notifications from './pages/Notifications/Notifications';
 import NavBar from './components/NavBar';
 import {
@@ -48,7 +48,6 @@ let MOCK_DATA = [
       "status" : "new"
   },
 ]
-const NEW_STATUS = "new";
 
 function App() {
   const context = useContext(InfoContext);
