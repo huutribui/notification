@@ -41,7 +41,6 @@ const NotificationBlock = (props) => {
 
     const handleCloseNotification = (e) => {
         e.preventDefault();
-        console.log("id: ", props.data.id);
         context.removeNotification( props.data.id);
     }
 
@@ -56,7 +55,7 @@ const NotificationBlock = (props) => {
             <Collapse in={open}>
                 <div className='blockContent'>
                     <div className='iconBlock'>
-                        {props.data.type === EC2_TYPE && <MemoryIcon className={'iconPic ' + (props.data.status === NEW_STATUS ? TYPE_MAP[props.data.type].className : 'iconPicViewed')}/>}
+                        {props.data.type === EC2_TYPE && <MemoryIcon fontSize="small" className={'iconPic ' + (props.data.status === NEW_STATUS ? TYPE_MAP[props.data.type].className : 'iconPicViewed')}/>}
                         {props.data.type === BILLING_TYPE && <PaymentIcon className={'iconPic ' + (props.data.status === NEW_STATUS ? TYPE_MAP[props.data.type].className : 'iconPicViewed')}/>}
                         {props.data.type === NEW_PRODUCT_TYPE && <NotificationsNoneIcon className={'iconPic ' + (props.data.status === NEW_STATUS ? TYPE_MAP[props.data.type].className : 'iconPicViewed')}/>}
                         {props.data.type === DOWN_TIME_TYPE && <ErrorOutlineIcon className={'iconPic ' + (props.data.status === NEW_STATUS ? TYPE_MAP[props.data.type].className : 'iconPicViewed')}/>}

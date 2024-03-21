@@ -7,11 +7,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import './NavBar.css';
 import { useContext } from 'react';
 import { InfoContext } from './InfoProvider';
-import { useState } from 'react';
-import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-
-const NEW_STATUS = "new";
 
 const NavBar = () => {
     const history = useHistory();
