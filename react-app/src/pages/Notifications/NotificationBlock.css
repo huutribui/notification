@@ -1,0 +1,48 @@
+.notificationBlock {
+
+}
+
+.notificationBlock .blockContent {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: white;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 2.5px 3px 0px;
+    border: 1px rgba(128, 128, 128, 0.16) solid;
+    align-items: center;
+    height: 100%;
+}
+
+.notificationBlock .iconPic {
+    color: white;
+    font-weight: 100;
+    box-sizing: border-box;
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    background-color: #00377C;
+    margin-right: 20px;
+}
+
+.notificationBlock .contentTextBold {
+    font-weight: 700;
+}
+
+.iconBlock {
+    display: flex;
+    align-self: center;
+}
+.notificationBlock  .textContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: inherit;
+    width: 100%;
+}
+.notificationBlock .dateTimeText {
+    color: #AEAEAE;
+    margin-top: 6px;
+}

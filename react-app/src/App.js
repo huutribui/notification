@@ -1,7 +1,7 @@
 import './App.css';
 
 import HomePage from './pages/HomePage';
-import Notifications from './pages/Notifications';
+import Notifications from './pages/Notifications/Notifications';
 import NavBar from './components/NavBar';
 import {
   BrowserRouter as Router,
