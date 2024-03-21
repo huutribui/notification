@@ -3,7 +3,7 @@ import React from 'react';
 const HomePage = () => {
     return(
         <>
-            <h1>HomePage</h1>
+            <div className='pageHeader'>Home Page</div>
             <div>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis nam inventore tempore officia unde odio praesentium quod. Eum dignissimos amet, suscipit commodi eaque fugiat sint minus sit harum corrupti quis.
                 Nam ut doloribus hic architecto nemo, ab aspernatur, cum culpa commodi eum accusamus, numquam minus? Similique id sed porro fuga possimus consectetur officiis, impedit ipsa rerum illum iure incidunt velit!

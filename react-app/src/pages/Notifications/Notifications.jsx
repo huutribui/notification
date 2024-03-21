@@ -8,7 +8,7 @@ const Notifications = () => {
 
     return(
         <>
-            <h1>Notifications</h1>
+            <div className='pageHeader'>Notifications</div>
             {context.notifications.map((notification, idx) => {
                 return <NotificationBlock key={idx} data={notification}/>
 
