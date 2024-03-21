@@ -1,5 +1,5 @@
 .notificationBlock {
-
+    margin-bottom: 10px;
 }
 
 .notificationBlock .blockContent {
@@ -8,7 +8,7 @@
     width: 100%;
     background-color: white;
     box-sizing: border-box;
-    padding: 20px;
+    padding: 15px;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 2.5px 3px 0px;
     border: 1px rgba(128, 128, 128, 0.16) solid;
@@ -55,7 +55,7 @@
     margin-right: 5px;
 }
 
-.iconBlock {
+.notificationBlock .iconBlock {
     display: flex;
     align-self: center;
 }
@@ -66,16 +66,17 @@
     height: inherit;
     width: 100%;
 }
+
 .notificationBlock .dateTimeText {
     color: #AEAEAE;
     margin-top: 6px;
 }
 
-.textGreyedOut {
+.notificationBlock .textGreyedOut {
     color: grey
 }
 
-.textContentInfo {
+.notificationBlock .textContentInfo {
     display: flex;
     flex-direction: row;
 }

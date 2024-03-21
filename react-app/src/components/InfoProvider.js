@@ -39,22 +39,33 @@ let MOCK_DATA = [
         "status" : "new"
     },
 ]
+const NEW_STATUS = "new";
 
 const InfoProvider = ({ children }) => {
     const [notifications, setNotifications] = useState(MOCK_DATA);
+    const [newNotificationCount, setNewNotificationCount] = useState(MOCK_DATA.length);
 
     const removeNotification = (id) => {
         console.log("removed noti:", id);
     }
 
     const viewedNotification = (id) => {
-        console.log("viewed noti: ", id);
+        let notificiationsArr = [...notifications];
+        let notificiationIdx = notificiationsArr.findIndex(e => e.id === id);
+        if (notificiationIdx > -1 && notificiationsArr[notificiationIdx].status === NEW_STATUS) {
+            notificiationsArr[notificiationIdx].status = "viewed";
+            let count = newNotificationCount - 1;
+            setNewNotificationCount(count);
+        }
+
+        setNotifications(notificiationsArr);
     }
     
     return (
 		<InfoContext.Provider
 			value={{
 				notifications: notifications,
+                newNotificationCount: newNotificationCount,
 				viewedNotification: viewedNotification,
 				removeNotification: removeNotification,
 			}}
